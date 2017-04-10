@@ -1,3 +1,11 @@
-= qosqo_bonocreditos
+BONOCREDITOS
 
-Description goes here
+
+Este plugin permite, a los docentes  (de la cátedra "Proyectos" de la carrera de Ingeniería en Sistemas de Información de la UTN-FRT), hacer el seguimiento de los bonocreditos de alumnos.
+
+El bonocredito es un puntaje que los alumnos deben obtener para poder aprobar la materia. El total de bonocreditos es de quince. Los bonocréditos pueden ser adquiridos en tres tipos de eventos: Responsabilidad Social, Semana de la Ingeniería o Conferencias y Concresos. 
+En total el alumno deberá adquirir un mínimo de cinco de cada uno para aprobar la materia.
+
+Por cada evento el alumno crea una petición de tipo "Bonocrédito", en la misma deberá agregar el titulo del evento, la descripción, la cantidad estimada de bonocreditos (0, 1 , 2 o 3 puntos) y el tipo de bonocredito (Responsabilidad Social, Semana de la Ingeniería o Conferencias y Concresos) y será asignada al docente.
+
+El docente deberá validar la cantidad de unidades que se acreditarán por el tipo de bonocrédito del alumno.
