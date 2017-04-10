@@ -1,6 +1,6 @@
 Redmine::Plugin.register :qosqo_bonocreditos do
   name 'Qosqo Bonocreditos plugin'
-  author 'Martín Roberto Tolava'
+  author 'Eduardo S. Terrones & Martín Roberto Tolava '
   description 'Visualizar la cantidad de bonocréditos de alumnos. Para aprobar la materia Proyecto de Ing. Sistemas de Información de UTN-FRT'
   version '0.0.1'
   url 'http://github.com'
