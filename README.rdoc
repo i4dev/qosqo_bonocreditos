@@ -9,3 +9,11 @@ En total el alumno deberá adquirir un mínimo de cinco de cada uno para aprobar
 Por cada evento el alumno crea una petición de tipo "Bonocrédito", en la misma deberá agregar el titulo del evento, la descripción, la cantidad estimada de bonocreditos (0, 1 , 2 o 3 puntos) y el tipo de bonocredito (Responsabilidad Social, Semana de la Ingeniería o Conferencias y Concresos) y será asignada al docente.
 
 El docente deberá validar la cantidad de unidades que se acreditarán por el tipo de bonocrédito del alumno.
+
+Vista de Totales
+
+En el proyecto padre (que agrupa los proyectos finales de los alumnos) se podrá visualizar la cantidad total de los bonocréditos que poseen todos los alumnos regulares de la materia "Proyecto".
+En su proyecto personal, el alumno podrá ver la cantidad de bonocreditos que posee.
+
+Detalles de las vistas
+Si el alumno alcanzó o superó el maximo de bonocreditos necesarios este valor deberá ser de color verde. Caso contrario será de color Rojo.
