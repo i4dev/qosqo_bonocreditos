@@ -1,0 +1,8 @@
+<%if issue.project.parent.module_enabled?(:qosqo_bonocreditos) && issue.project.parent.bonocredito_tracker_id == issue.tracker_id%>
+  <tr>
+    <th><%=l(:field_tipo_bonocredito)%> </th>
+    <td><%= issue.tipo_bonocredito %> </td>
+    <th><%=l(:field_bonocreditos)%></th>
+    <td><%= issue.bonocreditos %> </td>
+  </tr>
+<%end%>

@@ -4,15 +4,21 @@
     <tr>
       <th>Nombre</th>
       <th>Apellido</th>
-      <th>Bonocreditos</th>
+      <th>B$ (CyC)</th>
+      <th>B$ (RS)</th>
+      <th>B$ (SdI)</th>
+      <th>B$ TOTAL</th>
     </tr>
   </thead>
   <tbody>
     <%@alumnos.each do |alumno|%>
     <tr>
-      <td><%=alumno.firstname%></td>
-      <td><%=alumno.lastname%></td>
-      <td>  </td>
+      <td><%=alumno[:user].firstname%></td>
+      <td><%=alumno[:user].lastname%></td>
+      <td><%=alumno[:bonos_cyc]%></td>
+      <td><%=alumno[:bonos_rs]%></td>
+      <td><%=alumno[:bonos_sdi]%></td>
+      <td><%=alumno[:total]%></td>
     </tr>
     <%end%>
   </tbody>

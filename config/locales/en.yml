@@ -1,4 +1,6 @@
 # English strings go here for Rails i18n
 en:
-  # my_label: "My label"
-  Bonocreditos: "Bonocreditos"
+  menu_label: "Bonocredits"
+  field_bonocredito_tracker: "Bonocredito tracker"
+  field_bonocreditos: "Bonocreditos amount"
+  field_tipo_bonocredito: "Bonocreditos type"

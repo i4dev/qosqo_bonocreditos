@@ -1,7 +1,10 @@
 require 'redmine'
+require 'project_hooks'
 ActionDispatch::Callbacks.to_prepare do
     require_dependency 'issue'
     Issue.send(:include, IssuePatch)
+    require_dependency 'project'
+    Project.send(:include, ProjectPatch)
 end
 
 Redmine::Plugin.register :qosqo_bonocreditos do

@@ -1,0 +1,5 @@
+<%if @project.module_enabled?(:qosqo_bonocreditos)%>
+  <p>
+    <%= form.select :bonocredito_tracker_id, options_from_collection_for_select(@project.trackers, :id, :name, @project.bonocredito_tracker_id), {prompt: " "} %>
+  </p>
+<%end%>

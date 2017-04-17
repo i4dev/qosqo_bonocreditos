@@ -1,4 +1,6 @@
 # Traducciones
 es:
-  # my_label: "My label"
   menu_label: "Bonocreditos"
+  field_bonocredito_tracker: "Tipo de peticion Bonocredito"
+  field_bonocreditos: "Cantidad de bonocreditos"
+  field_tipo_bonocredito: "Tipo de bonocreditos"
