@@ -1,5 +1,8 @@
 <%if @project.module_enabled?(:qosqo_bonocreditos)%>
   <p>
-    <%= form.select :bonocredito_tracker_id, options_from_collection_for_select(@project.trackers, :id, :name, @project.bonocredito_tracker_id), {prompt: " "} %>
+    <%= form.select :bonocredito_tracker_id, options_from_collection_for_select(Tracker.all, :id, :name, @project.bonocredito_tracker_id), {prompt: " "} %>
+  </p>
+  <p>
+    <%= form.select :bonocredito_student_role_id, options_from_collection_for_select(Role.where(assignable: true), :id, :name, @project.bonocredito_student_role_id), {prompt: " "} %>
   </p>
 <%end%>

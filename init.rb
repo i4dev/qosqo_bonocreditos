@@ -16,7 +16,8 @@ Redmine::Plugin.register :qosqo_bonocreditos do
   author_url 'http://project.i4dev.com.ar'
 
   project_module :qosqo_bonocreditos do
-      permission :view_bonocreditos, {:bonocreditos => [:index]}
+    permission :view_bonocreditos, {:bonocreditos => [:index]}
+    permission :set_bonocreditos, {:issues => [:index]}
   end
 
   menu :project_menu, :bonocreditos, { controller: 'bonocreditos', action: 'index' },

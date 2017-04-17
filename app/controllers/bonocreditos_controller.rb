@@ -4,7 +4,10 @@ class BonocreditosController < ApplicationController
 
 
   def index
-    @rol=Role.find_by_name('Scrum Team')
+    @rol=Role.find_by_id(@project.bonocredito_student_role_id)
+    if @rol.nil?
+      @rol=Role.find_by_name('Scrum Team')
+    end
     @alumnos=[]
     @project.children.each do |subproject|
       subproject.members.each do |member|

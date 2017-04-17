@@ -1,8 +1,10 @@
-<%if issue.project.parent.module_enabled?(:qosqo_bonocreditos) && issue.project.parent.bonocredito_tracker_id == issue.tracker_id%>
-  <p>
-    <%= form.text_field :bonocreditos %>
-  </p>
-  <p>
-    <%= form.select :tipo_bonocredito, options_for_select(["Conferencias y Congresos", "Responsabilidad Social", "Semana de la Ingeniería"], issue.tipo_bonocredito) %>
-  </p>
+<%if issue.project.parent.module_enabled?(:qosqo_bonocreditos) && issue.project.parent.bonocredito_tracker_id && issue.project.parent.bonocredito_tracker_id == issue.tracker_id%>
+  <%if User.current.allowed_to?(:set_bonocreditos, issue.project.parent)%>
+    <p>
+      <%= form.text_field :bonocreditos %>
+    </p>
+    <p>
+      <%= form.select :tipo_bonocredito, options_for_select(["Conferencias y Congresos", "Responsabilidad Social", "Semana de la Ingeniería"], issue.tipo_bonocredito) %>
+    </p>
+  <%end%>
 <%end%>
