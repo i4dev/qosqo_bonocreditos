@@ -1,0 +1,19 @@
+<h2>Ranking de bonocreditos por alumno (Miembros con rol: <%= @rol.name%>)</h2>
+<table class="list issues">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Bonocreditos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@alumnos.each do |alumno|%>
+    <tr>
+      <td><%=alumno.firstname%></td>
+      <td><%=alumno.lastname%></td>
+      <td>  </td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
