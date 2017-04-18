@@ -1,4 +1,4 @@
-<%if @project.module_enabled?(:qosqo_bonocreditos)%>
+<%if @project.module_enabled?(:qosqo_bonocreditos) && (@project.parent.nil? || (@project.parent && !@project.parent.module_enabled?(:qosqo_bonocreditos)))%>
   <p>
     <%= form.select :bonocredito_tracker_id, options_from_collection_for_select(Tracker.all, :id, :name, @project.bonocredito_tracker_id), {prompt: " "} %>
   </p>

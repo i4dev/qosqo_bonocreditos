@@ -1,5 +1,5 @@
-<%if issue.project.parent.module_enabled?(:qosqo_bonocreditos) && issue.project.parent.bonocredito_tracker_id && issue.project.parent.bonocredito_tracker_id == issue.tracker_id%>
-  <%if User.current.allowed_to?(:set_bonocreditos, issue.project.parent)%>
+<%if issue.project.module_enabled?(:qosqo_bonocreditos) && issue.project.parent && issue.project.parent.module_enabled?(:qosqo_bonocreditos) && issue.project.parent.bonocredito_tracker_id && issue.project.parent.bonocredito_tracker_id == issue.tracker_id%>
+  <%if User.current.allowed_to?(:set_bonocreditos, issue.project)%>
     <p>
       <%= form.text_field :bonocreditos %>
     </p>
