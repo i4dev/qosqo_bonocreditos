@@ -1,3 +1,7 @@
+<% content_for :header_tags do %>
+    <%= stylesheet_link_tag 'bonocreditos', :plugin => 'qosqo_bonocreditos' %>
+<% end %>
+
 <h2>Ranking de bonocreditos por alumno (Miembros con rol: <%= @rol.name%>)</h2>
 <table class="list issues">
   <thead>
@@ -12,12 +16,12 @@
   </thead>
   <tbody>
     <%@alumnos.each do |alumno|%>
-    <tr>
+    <tr class="<%= clase_bonocredito_alumno(alumno)%>">
       <td><%=alumno[:user].firstname%></td>
       <td><%=alumno[:user].lastname%></td>
-      <td><%=alumno[:bonos_cyc]%></td>
-      <td><%=alumno[:bonos_rs]%></td>
-      <td><%=alumno[:bonos_sdi]%></td>
+      <td  class="<%= clase_bonocredito(alumno[:bonos_cyc])%>"><%=alumno[:bonos_cyc]%></td>
+      <td  class="<%= clase_bonocredito(alumno[:bonos_rs])%>"><%=alumno[:bonos_rs]%></td>
+      <td  class="<%= clase_bonocredito(alumno[:bonos_sdi])%>"><%=alumno[:bonos_sdi]%></td>
       <td><%=alumno[:total]%></td>
     </tr>
     <%end%>
