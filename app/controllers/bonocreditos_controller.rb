@@ -6,13 +6,13 @@ class BonocreditosController < ApplicationController
   def index
 
     @alumnos=[]
-    if @project.parent && @project.parent.module_enabled?(:qosqo_bonocreditos)
-      @rol=Role.find_by_id(@project.parent.bonocredito_student_role_id)
-      if @rol.nil?
-        @rol=Role.find_by_name('Scrum Team')
+    if @project.parent && @project.parent.module_enabled?(:qosqo_bonocreditos) #si => proyecto es padre y el modulo bonocreditos está activado
+      @rol=Role.find_by_id(@project.parent.bonocredito_student_role_id) #entonces => rol = Rol que se defina en el campo student_role_id de bonocredito
+      if @rol.nil? #si => campo está vacío
+        @rol=Role.find_by_name('Scrum Team') #entonces => rol = Scrum Team
       end
-      @project.members.each do |member|
-        if member.roles.include?(@rol)
+      @project.members.each do |member| # Por cada miembro del proyecto hacer 
+        if member.roles.include?(@rol) #Si => el rol del miembro es 'Scrum Team'
           bonos_cyc=@project.issues.where(assigned_to_id: member.user_id, tipo_bonocredito:"Conferencias y Congresos", tracker_id: @project.parent.bonocredito_tracker_id).sum(:bonocreditos).to_i
           bonos_rs=@project.issues.where(assigned_to_id: member.user_id, tipo_bonocredito:"Responsabilidad Social", tracker_id: @project.parent.bonocredito_tracker_id).sum(:bonocreditos).to_i
           bonos_sdi=@project.issues.where(assigned_to_id: member.user_id, tipo_bonocredito:"Semana de la Ingeniería", tracker_id: @project.parent.bonocredito_tracker_id).sum(:bonocreditos).to_i
