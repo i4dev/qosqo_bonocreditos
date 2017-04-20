@@ -2,21 +2,21 @@
     <%= stylesheet_link_tag 'bonocreditos', :plugin => 'qosqo_bonocreditos' %>
 <% end %>
 
-<h2>Ranking de bonocreditos por alumno (Miembros con rol: <%= @rol.name%>)</h2>
+<h2>Ranking de bonocr&eacute;ditos por alumno (Miembros con rol: <%= @rol.name%>)</h2>
 <table class="list issues">
   <thead>
     <tr>
       <th>Nombre</th>
       <th>Apellido</th>
-      <th>B$ (CyC)</th>
-      <th>B$ (RS)</th>
-      <th>B$ (SdI)</th>
+      <th>B$ (CyC)*</th>
+      <th>B$ (RS)*</th>
+      <th>B$ (SdI)*</th>
       <th>B$ TOTAL</th>
     </tr>
   </thead>
   <tbody>
     <%@alumnos.each do |alumno|%>
-    <tr class="<%= clase_bonocredito_alumno(alumno)%>">
+        <tr class="<%= clase_bonocredito_alumno(alumno)%>">
       <td><%=alumno[:user].firstname%></td>
       <td><%=alumno[:user].lastname%></td>
       <td  class="<%= clase_bonocredito(alumno[:bonos_cyc])%>"><%=alumno[:bonos_cyc]%></td>
@@ -27,3 +27,6 @@
     <%end%>
   </tbody>
 </table>
+<p><i>B$(CyC): Bonoc&eacute;dito de tipo Conferencias y Congresos</i></p>
+<p><i>B$(RS): Bonoc&eacute;dito de tipo Responsabilidad Social</i></p>
+<p><i>B$(SdI): Bonoc&eacute;dito de tipo Semana de la Ingenier&iacute;a</i></p>

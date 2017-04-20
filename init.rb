@@ -12,15 +12,15 @@ Redmine::Plugin.register :qosqo_bonocreditos do
   author 'Eduardo S. Terrones & Martín Roberto Tolava '
   description 'Visualizar la cantidad de bonocréditos de alumnos. Para aprobar la materia Proyecto de Ing. Sistemas de Información de UTN-FRT'
   version '0.0.1'
-  url 'http://github.com'
-  author_url 'http://project.i4dev.com.ar'
+  url 'https://github.com/i4dev/qosqo_bonocreditos'
+  author_url 'http://www.github.com/i4dev'
 
   project_module :qosqo_bonocreditos do
     permission :view_bonocreditos, {:bonocreditos => [:index]}
     permission :set_bonocreditos, {:issues => [:index]}
   end
 
-  menu :project_menu, :bonocreditos, { controller: 'bonocreditos', action: 'index' },
+  menu :project_menu, :bonocreditos, { controller: 'bonocréditos', action: 'index' },
     caption: :'menu_label',
     after: :activity,
     params: :project_id
