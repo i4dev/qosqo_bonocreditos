@@ -8,7 +8,7 @@ ActionDispatch::Callbacks.to_prepare do
 end
 
 Redmine::Plugin.register :qosqo_bonocreditos do
-  name 'Qosqo Bonocreditos plugin'
+  name 'Qosqo Bonocréditos plugin'
   author 'Eduardo S. Terrones & Martín Roberto Tolava '
   description 'Visualizar la cantidad de bonocréditos de alumnos. Para aprobar la materia Proyecto de Ing. Sistemas de Información de UTN-FRT'
   version '0.0.1'
@@ -20,7 +20,7 @@ Redmine::Plugin.register :qosqo_bonocreditos do
     permission :set_bonocreditos, {:issues => [:index]}
   end
 
-  menu :project_menu, :bonocreditos, { controller: 'bonocréditos', action: 'index' },
+  menu :project_menu, :bonocreditos, { controller: 'bonocreditos', action: 'index' },
     caption: :'menu_label',
     after: :activity,
     params: :project_id
