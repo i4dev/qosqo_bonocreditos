@@ -2,8 +2,8 @@
 
 ## ¿Que es un bonocrédito?
 
-El **bonocrédito** es un puntaje que los alumnos deben obtener para aprobar una materia. Se requiere un total de quince. Pueden ser adquiridos en tres tipos de eventos: Responsabilidad Social, Semana de la Ingeniería y Conferencias y Concresos.
-En total el alumno deberá adquirir como mínimo cinco de cada uno para aprobar la materia.
+El **bonocrédito** es un puntaje que los alumnos deben obtener para aprobar una materia. Se requiere un total de quince. Pueden ser adquiridos en tres tipos de eventos: Responsabilidad Social, Semana de la Ingeniería y Conferencias y Congresos.
+En total el alumno deberá adquirir, como mínimo, cinco de cada uno para aprobar la materia.
 
 ## ¿Como funciona esta extensión?
 Permite, a los docentes *(de la cátedra **"Proyectos"** de la carrera de Ingeniería en Sistemas de Información de la UTN-FRT)* hacer el seguimiento de los bonocréditos de alumnos.
