@@ -17,7 +17,7 @@ class BonocreditosController < ApplicationController
           bonos_rs=@project.issues.where(assigned_to_id: member.user_id, tipo_bonocredito:"Responsabilidad Social", tracker_id: @project.parent.bonocredito_tracker_id).sum(:bonocreditos).to_i
           bonos_sdi=@project.issues.where(assigned_to_id: member.user_id, tipo_bonocredito:"Semana de la Ingeniería", tracker_id: @project.parent.bonocredito_tracker_id).sum(:bonocreditos).to_i
           total=bonos_rs+bonos_cyc+bonos_sdi
-          @alumnos<<{user: member.user, bonos_cyc: bonos_cyc, bonos_rs: bonos_rs, bonos_sdi: bonos_sdi, total: total}
+          @alumnos<<{user: member.user, bonos_cyc: bonos_cyc, bonos_rs: bonos_rs, bonos_sdi: bonos_sdi, total: total, project: @project}
         end
       end
     else
@@ -33,7 +33,7 @@ class BonocreditosController < ApplicationController
               bonos_rs=subproject.issues.where(assigned_to_id: member.user_id, tipo_bonocredito:"Responsabilidad Social", tracker_id: @project.bonocredito_tracker_id).sum(:bonocreditos).to_i
               bonos_sdi=subproject.issues.where(assigned_to_id: member.user_id, tipo_bonocredito:"Semana de la Ingeniería", tracker_id: @project.bonocredito_tracker_id).sum(:bonocreditos).to_i
               total=bonos_rs+bonos_cyc+bonos_sdi
-              @alumnos<<{user: member.user, bonos_cyc: bonos_cyc, bonos_rs: bonos_rs, bonos_sdi: bonos_sdi, total: total}
+              @alumnos<<{user: member.user, bonos_cyc: bonos_cyc, bonos_rs: bonos_rs, bonos_sdi: bonos_sdi, total: total, project: subproject}
             end
           end
         end

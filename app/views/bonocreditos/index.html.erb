@@ -21,10 +21,34 @@
     <tr class="<%= clase_bonocredito_alumno(alumno)%>">
       <td><%=alumno[:user].lastname%></td>
       <td><%=alumno[:user].firstname%></td>
-      <td  class="<%= clase_bonocredito(alumno[:bonos_cyc])%>"><%=alumno[:bonos_cyc]%></td>
-      <td  class="<%= clase_bonocredito(alumno[:bonos_rs])%>"><%=alumno[:bonos_rs]%></td>
-      <td  class="<%= clase_bonocredito(alumno[:bonos_sdi])%>"><%=alumno[:bonos_sdi]%></td>
-      <td><%=alumno[:total]%></td>
+      <td  class="<%= clase_bonocredito(alumno[:bonos_cyc])%>">
+        <%=link_to alumno[:bonos_cyc], issues_path(project_id: alumno[:project], set_filter: "1",
+                                                    "c"=>["tracker", "status", "subject", "assigned_to", "tipo_bonocredito", "bonocreditos"],
+                                                    "f"=>["status_id", "tipo_bonocredito", "assigned_to_id"],
+                                                    "op"=>{"status_id"=>"o", "tipo_bonocredito"=>"=", "assigned_to_id"=>"="},
+                                                    "v"=>{"tipo_bonocredito"=>["Conferencias y Congresos"], "assigned_to_id"=>[alumno[:user].id]}), class: "bonocredito"%>
+      </td>
+      <td  class="<%= clase_bonocredito(alumno[:bonos_rs])%>">
+        <%=link_to alumno[:bonos_rs], issues_path(project_id: alumno[:project], set_filter: "1",
+                                                    "c"=>["tracker", "status", "subject", "assigned_to", "tipo_bonocredito", "bonocreditos"],
+                                                    "f"=>["status_id", "tipo_bonocredito", "assigned_to_id"],
+                                                    "op"=>{"status_id"=>"o", "tipo_bonocredito"=>"=", "assigned_to_id"=>"="},
+                                                    "v"=>{"tipo_bonocredito"=>["Responsabilidad Social"], "assigned_to_id"=>[alumno[:user].id]}), class: "bonocredito"%>
+      </td>
+      <td  class="<%= clase_bonocredito(alumno[:bonos_sdi])%>">
+        <%=link_to alumno[:bonos_sdi], issues_path(project_id: alumno[:project], set_filter: "1",
+                                                    "c"=>["tracker", "status", "subject", "assigned_to", "tipo_bonocredito", "bonocreditos"],
+                                                    "f"=>["status_id", "tipo_bonocredito", "assigned_to_id"],
+                                                    "op"=>{"status_id"=>"o", "tipo_bonocredito"=>"=", "assigned_to_id"=>"="},
+                                                    "v"=>{"tipo_bonocredito"=>["Semana de la Ingeniería"], "assigned_to_id"=>[alumno[:user].id]}), class: "bonocredito"%>
+      </td>
+      <td>
+        <%=link_to alumno[:total], issues_path(project_id: alumno[:project], set_filter: "1", "group_by"=>"tipo_bonocredito",
+                                                    "c"=>["tracker", "status", "subject", "assigned_to", "tipo_bonocredito", "bonocreditos"],
+                                                    "f"=>["status_id", "assigned_to_id"],
+                                                    "op"=>{"status_id"=>"o", "assigned_to_id"=>"="},
+                                                    "v"=>{"assigned_to_id"=>[alumno[:user].id]})%>
+      </td>
     </tr>
     <%end%>
   </tbody>
