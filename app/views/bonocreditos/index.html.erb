@@ -4,28 +4,19 @@
     <%= stylesheet_link_tag 'bonocreditos', :plugin => 'qosqo_bonocreditos' %>
 <% end %>
 
-<<<<<<< HEAD
 <h2>Bonocr&eacute;ditos por alumno (Miembros con rol: <%= @rol.name%>)</h2>
 <table class="list issues">
-=======
+
 <h2>Ranking de bonocr&eacute;ditos por alumno (Miembros con rol: <%= @rol.name%>)</h2>
 <table class="list issues dataTable">
->>>>>>> 65c5389ccdb5a641ff8b1d918c8974c88604bca9
   <thead>
     <tr>
       <th>Apellido</th>
-<<<<<<< HEAD
+      <th>Nombre</th>
       <th>Conferencias y Congresos</th>
       <th>Responsabilidad Social</th>
       <th>Semana de la Ingenier&iacute;a</th>
       <th>Total Bonocr&eacute;ditos</th>
-=======
-      <th>Nombre</th>
-      <th>B$ (CyC)*</th>
-      <th>B$ (RS)*</th>
-      <th>B$ (SdI)*</th>
-      <th>B$ TOTAL</th>
->>>>>>> 65c5389ccdb5a641ff8b1d918c8974c88604bca9
     </tr>
   </thead>
   <tbody>
@@ -64,13 +55,8 @@
     </tr>
     <%end%>
   </tbody>
-<<<<<<< HEAD
 </table>
-=======
 </table>
-<p><i>B$(CyC): Bonoc&eacute;dito de tipo Conferencias y Congresos</i></p>
-<p><i>B$(RS): Bonoc&eacute;dito de tipo Responsabilidad Social</i></p>
-<p><i>B$(SdI): Bonoc&eacute;dito de tipo Semana de la Ingenier&iacute;a</i></p>
 <%=javascript_include_tag("datatables.min.js", :plugin => 'qosqo_bonocreditos')%>
 <%=javascript_include_tag("moment.min.js", :plugin => 'qosqo_bonocreditos')%>
 <%=javascript_include_tag("datetime-moment.js", :plugin => 'qosqo_bonocreditos')%>
@@ -82,4 +68,3 @@
 <%=javascript_include_tag("buttons.html5.min.js", :plugin => 'qosqo_bonocreditos')%>
 <%=javascript_include_tag("buttons.print.min.js", :plugin => 'qosqo_bonocreditos')%>
 <%=javascript_include_tag("bonocreditos", :plugin => 'qosqo_bonocreditos')%>
->>>>>>> 65c5389ccdb5a641ff8b1d918c8974c88604bca9
