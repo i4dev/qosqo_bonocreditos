@@ -6,9 +6,6 @@
 
 <h2>Bonocr&eacute;ditos por alumno (Miembros con rol: <%= @rol.name%>)</h2>
 <table class="list issues">
-
-<h2>Ranking de bonocr&eacute;ditos por alumno (Miembros con rol: <%= @rol.name%>)</h2>
-<table class="list issues dataTable">
   <thead>
     <tr>
       <th>Apellido</th>
@@ -55,7 +52,6 @@
     </tr>
     <%end%>
   </tbody>
-</table>
 </table>
 <%=javascript_include_tag("datatables.min.js", :plugin => 'qosqo_bonocreditos')%>
 <%=javascript_include_tag("moment.min.js", :plugin => 'qosqo_bonocreditos')%>
