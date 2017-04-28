@@ -5,6 +5,8 @@ ActionDispatch::Callbacks.to_prepare do
     Issue.send(:include, IssuePatch)
     require_dependency 'project'
     Project.send(:include, ProjectPatch)
+    require_dependency 'issue_query'
+    IssueQuery.send(:include, IssueQueryPatch)
 end
 
 Redmine::Plugin.register :qosqo_bonocreditos do

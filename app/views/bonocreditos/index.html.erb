@@ -1,29 +1,85 @@
 <% content_for :header_tags do %>
+    <%= stylesheet_link_tag 'buttons.dataTables.min.css', :plugin => 'qosqo_bonocreditos' %>
+    <%= stylesheet_link_tag 'datatables', :plugin => 'qosqo_bonocreditos' %>
     <%= stylesheet_link_tag 'bonocreditos', :plugin => 'qosqo_bonocreditos' %>
 <% end %>
 
+<<<<<<< HEAD
 <h2>Bonocr&eacute;ditos por alumno (Miembros con rol: <%= @rol.name%>)</h2>
 <table class="list issues">
+=======
+<h2>Ranking de bonocr&eacute;ditos por alumno (Miembros con rol: <%= @rol.name%>)</h2>
+<table class="list issues dataTable">
+>>>>>>> 65c5389ccdb5a641ff8b1d918c8974c88604bca9
   <thead>
     <tr>
-      <th>Nombre</th>
       <th>Apellido</th>
+<<<<<<< HEAD
       <th>Conferencias y Congresos</th>
       <th>Responsabilidad Social</th>
       <th>Semana de la Ingenier&iacute;a</th>
       <th>Total Bonocr&eacute;ditos</th>
+=======
+      <th>Nombre</th>
+      <th>B$ (CyC)*</th>
+      <th>B$ (RS)*</th>
+      <th>B$ (SdI)*</th>
+      <th>B$ TOTAL</th>
+>>>>>>> 65c5389ccdb5a641ff8b1d918c8974c88604bca9
     </tr>
   </thead>
   <tbody>
     <%@alumnos.each do |alumno|%>
-        <tr class="<%= clase_bonocredito_alumno(alumno)%>">
-      <td><%=alumno[:user].firstname%></td>
+    <tr class="<%= clase_bonocredito_alumno(alumno)%>">
       <td><%=alumno[:user].lastname%></td>
-      <td  class="<%= clase_bonocredito(alumno[:bonos_cyc])%>"><%=alumno[:bonos_cyc]%></td>
-      <td  class="<%= clase_bonocredito(alumno[:bonos_rs])%>"><%=alumno[:bonos_rs]%></td>
-      <td  class="<%= clase_bonocredito(alumno[:bonos_sdi])%>"><%=alumno[:bonos_sdi]%></td>
-      <td><%=alumno[:total]%></td>
+      <td><%=alumno[:user].firstname%></td>
+      <td  class="<%= clase_bonocredito(alumno[:bonos_cyc])%>">
+        <%=link_to alumno[:bonos_cyc], issues_path(project_id: alumno[:project], set_filter: "1",
+                                                    "c"=>["tracker", "status", "subject", "assigned_to", "tipo_bonocredito", "bonocreditos"],
+                                                    "f"=>["status_id", "tipo_bonocredito", "assigned_to_id"],
+                                                    "op"=>{"status_id"=>"o", "tipo_bonocredito"=>"=", "assigned_to_id"=>"="},
+                                                    "v"=>{"tipo_bonocredito"=>["Conferencias y Congresos"], "assigned_to_id"=>[alumno[:user].id]}), class: "bonocredito"%>
+      </td>
+      <td  class="<%= clase_bonocredito(alumno[:bonos_rs])%>">
+        <%=link_to alumno[:bonos_rs], issues_path(project_id: alumno[:project], set_filter: "1",
+                                                    "c"=>["tracker", "status", "subject", "assigned_to", "tipo_bonocredito", "bonocreditos"],
+                                                    "f"=>["status_id", "tipo_bonocredito", "assigned_to_id"],
+                                                    "op"=>{"status_id"=>"o", "tipo_bonocredito"=>"=", "assigned_to_id"=>"="},
+                                                    "v"=>{"tipo_bonocredito"=>["Responsabilidad Social"], "assigned_to_id"=>[alumno[:user].id]}), class: "bonocredito"%>
+      </td>
+      <td  class="<%= clase_bonocredito(alumno[:bonos_sdi])%>">
+        <%=link_to alumno[:bonos_sdi], issues_path(project_id: alumno[:project], set_filter: "1",
+                                                    "c"=>["tracker", "status", "subject", "assigned_to", "tipo_bonocredito", "bonocreditos"],
+                                                    "f"=>["status_id", "tipo_bonocredito", "assigned_to_id"],
+                                                    "op"=>{"status_id"=>"o", "tipo_bonocredito"=>"=", "assigned_to_id"=>"="},
+                                                    "v"=>{"tipo_bonocredito"=>["Semana de la Ingeniería"], "assigned_to_id"=>[alumno[:user].id]}), class: "bonocredito"%>
+      </td>
+      <td>
+        <%=link_to alumno[:total], issues_path(project_id: alumno[:project], set_filter: "1", "group_by"=>"tipo_bonocredito",
+                                                    "c"=>["tracker", "status", "subject", "assigned_to", "tipo_bonocredito", "bonocreditos"],
+                                                    "f"=>["status_id", "assigned_to_id"],
+                                                    "op"=>{"status_id"=>"o", "assigned_to_id"=>"="},
+                                                    "v"=>{"assigned_to_id"=>[alumno[:user].id]})%>
+      </td>
     </tr>
     <%end%>
   </tbody>
+<<<<<<< HEAD
 </table>
+=======
+</table>
+<p><i>B$(CyC): Bonoc&eacute;dito de tipo Conferencias y Congresos</i></p>
+<p><i>B$(RS): Bonoc&eacute;dito de tipo Responsabilidad Social</i></p>
+<p><i>B$(SdI): Bonoc&eacute;dito de tipo Semana de la Ingenier&iacute;a</i></p>
+<%=javascript_include_tag("datatables.min.js", :plugin => 'qosqo_bonocreditos')%>
+<%=javascript_include_tag("moment.min.js", :plugin => 'qosqo_bonocreditos')%>
+<%=javascript_include_tag("datetime-moment.js", :plugin => 'qosqo_bonocreditos')%>
+<%=javascript_include_tag("dataTables.buttons.min.js", :plugin => 'qosqo_bonocreditos')%>
+<%=javascript_include_tag("buttons.flash.min.js", :plugin => 'qosqo_bonocreditos')%>
+<%=javascript_include_tag("jszip.min.js", :plugin => 'qosqo_bonocreditos')%>
+<%=javascript_include_tag("pdfmake.min.js", :plugin => 'qosqo_bonocreditos')%>
+<%=javascript_include_tag("vfs_fonts.js", :plugin => 'qosqo_bonocreditos')%>
+<%=javascript_include_tag("buttons.html5.min.js", :plugin => 'qosqo_bonocreditos')%>
+<%=javascript_include_tag("buttons.print.min.js", :plugin => 'qosqo_bonocreditos')%>
+<%=javascript_include_tag("bonocreditos", :plugin => 'qosqo_bonocreditos')%>
+>>>>>>> 65c5389ccdb5a641ff8b1d918c8974c88604bca9
