@@ -8,6 +8,12 @@ class BonocreditosController < ApplicationController
     @alumnos=[]
     if @project.parent && @project.parent.module_enabled?(:qosqo_bonocreditos) #si => proyecto es padre y el modulo bonocreditos está activado
       @rol=Role.find_by_id(@project.parent.bonocredito_student_role_id) #entonces => rol = Rol que se defina en el campo student_role_id de bonocredito
+      @year = Project.custom_field_values(:64=>"@").
+
+      @coso = CustomValue.where(:customized_id=>@project.id,:custom_field_id=>'64')
+      anio = @coso.value
+
+      @project.bonocredito_year = @year
       if @rol.nil? #si => campo está vacío
         @rol=Role.find_by_name('Scrum Team') #entonces => rol = Scrum Team
       end

@@ -7,6 +7,8 @@
 <table class="list issues dataTable">
   <thead>
     <tr>
+      <th>Projecto</th>
+      <th>Año</th>
       <th>Apellido</th>
       <th>Nombre</th>
       <th>Conferencias y Congresos</th>
@@ -18,6 +20,8 @@
   <tbody>
     <%@alumnos.each do |alumno|%>
     <tr class="<%= clase_bonocredito_alumno(alumno)%>">
+      <td><%=alumno[:project].name%></td>
+      <td><%=alumno[:project].bonocredito_year%></td>
       <td><%=alumno[:user].lastname%></td>
       <td><%=alumno[:user].firstname%></td>
       <td  class="<%= clase_bonocredito(alumno[:bonos_cyc])%>">
